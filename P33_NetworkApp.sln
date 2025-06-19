@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_Server", "TCP_Server\TCP_Server.csproj", "{B8216D7C-E443-4AFD-80BF-6266B7ECF8CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_Client", "TCP_Client\TCP_Client.csproj", "{C1F02D2F-D664-4ADB-B1D4-694248A2D896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "TEST\TEST.csproj", "{A6C0B4BE-C9A6-4267-847F-289EF426775D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{B8216D7C-E443-4AFD-80BF-6266B7ECF8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8216D7C-E443-4AFD-80BF-6266B7ECF8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8216D7C-E443-4AFD-80BF-6266B7ECF8CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F02D2F-D664-4ADB-B1D4-694248A2D896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F02D2F-D664-4ADB-B1D4-694248A2D896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F02D2F-D664-4ADB-B1D4-694248A2D896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F02D2F-D664-4ADB-B1D4-694248A2D896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6C0B4BE-C9A6-4267-847F-289EF426775D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6C0B4BE-C9A6-4267-847F-289EF426775D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6C0B4BE-C9A6-4267-847F-289EF426775D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6C0B4BE-C9A6-4267-847F-289EF426775D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
