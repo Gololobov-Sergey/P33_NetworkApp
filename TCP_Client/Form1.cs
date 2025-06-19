@@ -76,6 +76,15 @@ namespace TCP_Client
 
                 }
             };
+
+            if (InvokeRequired)
+            {
+                Invoke(action);
+            }
+            else
+            {
+                action();
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
