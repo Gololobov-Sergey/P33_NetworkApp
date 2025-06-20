@@ -7,9 +7,9 @@ namespace TCP_Server
         static void Main(string[] args)
         {
             Console.Title = "TCP Server";
-            int port;
-            Console.Write("Enter port : ");
-            port = int.Parse(Console.ReadLine());   
+            int port = 1000;
+            //Console.Write("Enter port : ");
+            //port = int.Parse(Console.ReadLine());   
 
             TCP_Server server = new TCP_Server(IPAddress.Any, port);
             server.Message += Server_Message;

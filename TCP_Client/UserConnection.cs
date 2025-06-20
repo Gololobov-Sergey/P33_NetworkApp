@@ -31,7 +31,7 @@ namespace TCP_Client
         }
 
 
-        public async Task ConnectAsync() => await Task.Factory.StartNew(Connect); 
+        public async Task ConnectAsync() => await Task.Factory.StartNew(Connect);
 
         public void Connect()
         {
@@ -56,10 +56,10 @@ namespace TCP_Client
         {
             try
             {
-                if(tcpClient != null && tcpClient.Connected)
+                if (tcpClient != null && tcpClient.Connected)
                 {
                     SendMessage("Disconnect");
-                    tcpClient.Close();  
+                    tcpClient.Close();
                 }
             }
             finally
@@ -74,7 +74,7 @@ namespace TCP_Client
 
         public void SendMessage(string message)
         {
-            if(tcpClient == null || !tcpClient.Connected)
+            if (tcpClient == null || !tcpClient.Connected)
             {
                 return;
             }
@@ -93,8 +93,35 @@ namespace TCP_Client
             }
         }
 
+        public async Task ReadMessageAsync() => await Task.Run(() => ReadMessage());
 
+        public void ReadMessage()
+        {
+            if (tcpClient == null || !tcpClient.Connected)
+            {
+                return;
+            }
+            try
+            {
+                NetworkStream networkStream = tcpClient.GetStream();
+                byte[] buffer = new byte[1024];
+                StringBuilder messageBuilder = new StringBuilder();
+                do
+                {
+                    int bytesRead = networkStream.Read(buffer, 0, buffer.Length);
+                    if (bytesRead == 0) break;
+                    messageBuilder.Append(Encoding.UTF8.GetString(buffer, 0, bytesRead));
 
+                } while (networkStream.DataAvailable);
 
+                IncomingMessage?.Invoke(messageBuilder.ToString());
+            }
+            catch (Exception)
+            {
+
+            }
+            
+
+        }
     }
 }

@@ -24,25 +24,32 @@ namespace TCP_Client
                     return;
                 }
                 client = new UserConnection(
-                    txtNameUser.Text, 
-                    IPAddress.Parse(txtIPAddress.Text), 
+                    txtNameUser.Text,
+                    IPAddress.Parse(txtIPAddress.Text),
                     (int)numPort.Value
                     );
 
                 client.ConnectedEstablished += Client_ConnectedEstablished;
+                client.IncomingMessage += Client_IncomingMessage;
 
                 await client.ConnectAsync();
-
-              
-
-                
+                await client.ReadMessageAsync();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                client = null;
+                Client_IncomingMessage($"Error: {ex.Message}");
             }
-           
+
+        }
+
+        private void Client_IncomingMessage(string message)
+        {
+            BeginInvoke(new Action(() =>
+            {
+                /// TODO: Update the UI with the received message
+                richTextBox1.Text += $"{message}\n";
+            }));
         }
 
         private void Client_ConnectedEstablished(bool connected)
@@ -82,12 +89,45 @@ namespace TCP_Client
         {
             try
             {
-                if(client != null)
+                if (client != null)
                 {
                     client.Disconnect();
                 }
             }
             catch { }
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            Form1_FormClosing(sender, null);
+        }
+
+        private async void btnSend_Click(object sender, EventArgs e)
+        {
+            if (client != null && client.Connected)
+            {
+                if (txtMessage.Text == string.Empty)
+                {
+                    return;
+                }
+
+                btnSend.Enabled = false;
+                await client.SendMessageAsync(txtMessage.Text);
+
+                /// TODO: Update the UI with the sent message
+                richTextBox1.Text += $"{client.Name}: {txtMessage.Text}\n";
+
+                txtMessage.Clear();
+                txtMessage.Focus();
+                btnSend.Enabled = true;
+
+                await client.ReadMessageAsync();
+                
+            }
+            else
+            {
+                MessageBox.Show("You are not connected to the server!", "Chat");
+            }
         }
     }
 }

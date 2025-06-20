@@ -49,13 +49,17 @@ namespace TCP_Server
             {
                 while (true)
                 {
+                    
                     StringBuilder? builder = new StringBuilder();
                     do
                     {
                         bytes = stream.Read(buffer, 0, buffer.Length);
+                        
                         builder.Append(Encoding.UTF8.GetString(buffer));
                     } while (stream.DataAvailable);
 
+                    if (bytes == 0)
+                        break;
                     IncomingMessage?.Invoke(this, builder.ToString());
 
                     if (builder.ToString().CompareTo("exit") == 0)
