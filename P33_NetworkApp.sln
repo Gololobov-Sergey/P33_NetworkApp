@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_Client", "TCP_Client\TC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "TEST\TEST.csproj", "{A6C0B4BE-C9A6-4267-847F-289EF426775D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDP_Chat", "UDP_Chat\UDP_Chat.csproj", "{D5226C64-547E-476A-A2A5-060DD9EA75A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendImage", "SendImage\SendImage.csproj", "{055FD5C8-4D4A-45BB-A753-BB06D2B188D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{A6C0B4BE-C9A6-4267-847F-289EF426775D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6C0B4BE-C9A6-4267-847F-289EF426775D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6C0B4BE-C9A6-4267-847F-289EF426775D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5226C64-547E-476A-A2A5-060DD9EA75A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5226C64-547E-476A-A2A5-060DD9EA75A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5226C64-547E-476A-A2A5-060DD9EA75A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5226C64-547E-476A-A2A5-060DD9EA75A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{055FD5C8-4D4A-45BB-A753-BB06D2B188D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{055FD5C8-4D4A-45BB-A753-BB06D2B188D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{055FD5C8-4D4A-45BB-A753-BB06D2B188D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{055FD5C8-4D4A-45BB-A753-BB06D2B188D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
