@@ -47,7 +47,7 @@ namespace TCP_Client
 
         private void Client_ConnectedEstablished(bool connected)
         {
-            Action action = () =>
+            BeginInvoke(new Action(() =>
             {
                 if (connected)
                 {
@@ -75,16 +75,7 @@ namespace TCP_Client
                     richTextBox1.Text += "Disconnect\n";
 
                 }
-            };
-
-            if (InvokeRequired)
-            {
-                Invoke(action);
-            }
-            else
-            {
-                action();
-            }
+            }));
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
