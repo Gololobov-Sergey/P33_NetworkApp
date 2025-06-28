@@ -1,14 +1,26 @@
-﻿using System.Net;
+﻿using HtmlAgilityPack;
+using System.Net;
+using System.Net.Sockets;
 using System.Threading.Tasks;
-
-using HtmlAgilityPack;
 
 namespace HTTP
 {
     internal class Program
     {
-        
 
+        class Car
+        {
+            public string? FileName { get; set; }
+            public string? Model { get; set; }
+            public decimal? Price { get; set; }
+            public string? VIN { get; set; }
+
+            public override string ToString()
+            {
+                return $"{FileName} {Model} {Price} {VIN}";
+            }
+
+        }
 
         public static async Task DownloadFile(string url, string path)
         {
@@ -99,30 +111,71 @@ namespace HTTP
 
             //// pasing HTML example
 
-            string url = "https://auto.ria.com/uk/legkovie/bmw/x1/?page=1";
+            string url = "https://auto.ria.com/uk/legkovie/bmw/x1/?page=";
             HttpClient client = new HttpClient();
-            string htmlContent = await client.GetStringAsync(url);
-            HtmlDocument document = new HtmlDocument();
-            document.LoadHtml(htmlContent);
-
-            var nodes = document.DocumentNode.SelectNodes("//section[@class]");
-            if (nodes != null)
+            List<Car> cars = new List<Car>();
+            int page = 1;
+            while (true)
             {
-                foreach (var node in nodes)
+                try
                 {
-                    string hrefValue = node.GetAttributeValue("href", string.Empty);
-                    Console.WriteLine($"Link: {hrefValue}");
+                    string urlPage = $"{url}{page++}";
+                    Console.WriteLine($"Fetching page: {urlPage}");
+                    string htmlContent;
+                    try
+                    {
+                        htmlContent = await client.GetStringAsync(urlPage);
+                    }
+                    catch (Exception)
+                    {
+                        break;
+                    }
+                    
+
+                    if (string.IsNullOrEmpty(htmlContent) || !htmlContent.Contains("ticket-item"))
+                    {
+                        break;
+                    }
+                    HtmlDocument document = new HtmlDocument();
+                    document.LoadHtml(htmlContent);
+
+                    var section = document.DocumentNode.SelectNodes("//section[@class='ticket-item ']");
+                    foreach (var node in section)
+                    {
+                        Car car = new Car();
+                        car.FileName = node.SelectSingleNode(".//div[@class='content-bar']//div[@class='ticket-photo']//a//picture//source[@srcset]")?.GetAttributeValue("srcset", string.Empty);
+                        car.Model = node.SelectSingleNode(".//div[@class='content-bar']//div[@class='content']//div[@class='head-ticket']//div[@class='item ticket-title']//a//span")?.InnerText.Trim();
+                        car.Price = decimal.TryParse(node.SelectSingleNode(".//div[@class='content-bar']//div[@class='content']//div[@class='price-ticket']//span//span[@data-currency='USD']")?.InnerText.Trim(), out decimal price) ? price : (decimal?)null;
+                        car.VIN = node.SelectSingleNode(".//div[@class='content-bar']//div[@class='content']//div[@class='definition-data']//div[@class='base_information']//span[@class='label-vin']//span[1]")?.InnerText.Trim();
+
+                        cars.Add(car);
+
+                        string fileName = car.FileName?.Split('/').Last();
+                        string path = Path.Combine("images", $"{fileName}");
+
+                        if (!Directory.Exists("images"))
+                        {
+                            Directory.CreateDirectory("images");
+                        }
+                        if (!string.IsNullOrEmpty(car.FileName))
+                        {
+                            await DownloadFile(car.FileName, path);
+                            car.FileName = fileName;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Хтось не схотів до нас у колекцію");
                 }
             }
-            else
+
+
+
+            foreach (var car in cars)
             {
-                Console.WriteLine("No links found in the document.");
+                Console.WriteLine(car);
             }
-
-
-
-
-
 
         }
     }
