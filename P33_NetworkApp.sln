@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MulticastChat", "MulticastC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTP", "HTTP\HTTP.csproj", "{7EE00F6F-E209-4859-82FB-83085B230DB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailClient", "MailClient\MailClient.csproj", "{1DADA008-7DDA-4473-A8D7-2F44A743535F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailClientForm", "MailClientForm\MailClientForm.csproj", "{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{7EE00F6F-E209-4859-82FB-83085B230DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EE00F6F-E209-4859-82FB-83085B230DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EE00F6F-E209-4859-82FB-83085B230DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DADA008-7DDA-4473-A8D7-2F44A743535F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DADA008-7DDA-4473-A8D7-2F44A743535F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DADA008-7DDA-4473-A8D7-2F44A743535F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DADA008-7DDA-4473-A8D7-2F44A743535F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

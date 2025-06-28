@@ -111,7 +111,7 @@ namespace HTTP
 
             //// pasing HTML example
 
-            string url = "https://auto.ria.com/uk/legkovie/bmw/x1/?page=";
+            string url = "https://auto.ria.com/uk/legkovie/bmw/x6/?page=";
             HttpClient client = new HttpClient();
             List<Car> cars = new List<Car>();
             int page = 1;
