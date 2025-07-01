@@ -86,9 +86,6 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "gololobov.seghiy@gmail.com",
-            "probogdan88@gmail.com"});
             this.comboBox1.Location = new System.Drawing.Point(80, 8);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(574, 21);

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Реклама");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Вхідні", new System.Windows.Forms.TreeNode[] {
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Вихідні");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Архів");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Корзина");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Реклама");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Вхідні", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Вихідні");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Архів");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Корзина");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +55,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,21 +110,21 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(12, 52);
             this.treeView1.Name = "treeView1";
-            treeNode16.Name = "Узел4";
-            treeNode16.Text = "Реклама";
-            treeNode17.Name = "Узел0";
-            treeNode17.Text = "Вхідні";
-            treeNode18.Name = "Узел1";
-            treeNode18.Text = "Вихідні";
-            treeNode19.Name = "Узел2";
-            treeNode19.Text = "Архів";
-            treeNode20.Name = "Узел3";
-            treeNode20.Text = "Корзина";
+            treeNode11.Name = "Узел4";
+            treeNode11.Text = "Реклама";
+            treeNode12.Name = "Узел0";
+            treeNode12.Text = "Вхідні";
+            treeNode13.Name = "Узел1";
+            treeNode13.Text = "Вихідні";
+            treeNode14.Name = "Узел2";
+            treeNode14.Text = "Архів";
+            treeNode15.Name = "Узел3";
+            treeNode15.Text = "Корзина";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18,
-            treeNode19,
-            treeNode20});
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15});
             this.treeView1.Size = new System.Drawing.Size(174, 204);
             this.treeView1.TabIndex = 2;
             // 
@@ -135,6 +136,7 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(201, 52);
             this.listView1.Name = "listView1";
@@ -142,26 +144,27 @@
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Від кого";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Width = 147;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Кому";
-            this.columnHeader2.Width = 100;
+            this.columnHeader2.Width = 138;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Дата";
-            this.columnHeader3.Width = 80;
+            this.columnHeader3.Width = 145;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Тема";
-            this.columnHeader4.Width = 100;
+            this.columnHeader4.Width = 145;
             // 
             // columnHeader5
             // 
@@ -239,11 +242,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(73, 362);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(716, 295);
+            this.webBrowser1.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 657);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label6);
@@ -288,6 +300,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 

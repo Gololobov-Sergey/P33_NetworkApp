@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailClient", "MailClient\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailClientForm", "MailClientForm\MailClientForm.csproj", "{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form_Test", "Form_Test\Form_Test.csproj", "{CD9F7530-CDDA-43C8-9C55-0A3EE46248EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81AFCCC6-4776-4273-87A8-B15E6D08C7F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9F7530-CDDA-43C8-9C55-0A3EE46248EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9F7530-CDDA-43C8-9C55-0A3EE46248EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9F7530-CDDA-43C8-9C55-0A3EE46248EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9F7530-CDDA-43C8-9C55-0A3EE46248EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

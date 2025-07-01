@@ -14,18 +14,39 @@ namespace MailClientForm
 {
     public partial class SendMessageForm : Form
     {
+        public List<string> EmailTo 
+        {
+            get 
+            { 
+                return (List<string>)comboBox1.DataSource; 
+            }
+            set 
+            { 
+                comboBox1.DataSource = value; 
+            }
+        }
+
         public SendMessageForm()
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
+            
             comboBox2.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string newEmail = comboBox1.Text;
+            if (comboBox1.Items.IndexOf(newEmail) == -1)
+            {
+                
+                EmailTo.Add(newEmail);
+                //comboBox1.DataSource = EmailTo;
+            }
+
+
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Від кого", comboBox2.SelectedItem.ToString()));
-            message.To.Add(new MailboxAddress("Кому", comboBox1.SelectedItem.ToString()));
+            message.To.Add(new MailboxAddress("Кому", comboBox1.Text));
             message.Subject = textBox1.Text;
 
             
@@ -49,7 +70,8 @@ namespace MailClientForm
 
                     client.Disconnect(true);
 
-                    this.Visible = false;   
+                    this.Visible = false; 
+                    this.DialogResult = DialogResult.OK;    
                     this.Close();
                 }
                 catch (Exception ex)
