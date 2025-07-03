@@ -30,13 +30,16 @@ namespace MailClientForm
 
             // load email
             LoadEmailMessage();
+
+            splitContainer1.SplitterDistance = 200;
+
         }
 
 
         void LoadEmailMessage()
         {
             string email = "gololobov.serhiy@gmail.com";
-            string password = "lovk iojp teup gdsz";
+            string password = "xxxx xxxx xxxx xxxx";
             string imapServer = "imap.gmail.com";
             int port = 993;
 
@@ -94,30 +97,34 @@ namespace MailClientForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int count = emailTo.Count;
-            SendMessageForm sendForm = new SendMessageForm();
-            sendForm.EmailTo = emailTo;
-            if(sendForm.ShowDialog() == DialogResult.OK)
-            {
-                emailTo = sendForm.EmailTo;
-                if (emailTo.Count != count)
-                {
-                    // save to file
-                }
-            }
+            
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             System.Windows.Forms.ListView item = ((System.Windows.Forms.ListView)sender);
             int index = item.FocusedItem.Index;
-            richTextBox1.Text = emailMessages[index].Body ?? emailMessages[index].HTML;
+            
+            webBrowser1.DocumentText = emailMessages[index].HTML ?? emailMessages[index].Body;
+        }
 
-            // Fix for CS1729: Use the existing HtmlDocument instance from the WebBrowser control  
-            var html = webBrowser1.Document;
-            if (html != null)
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            int count = emailTo.Count;
+            SendMessageForm sendForm = new SendMessageForm();
+            sendForm.EmailTo = emailTo;
+            if (sendForm.ShowDialog() == DialogResult.OK)
             {
-                html.Body.InnerHtml = emailMessages[index].HTML;
+                emailTo = sendForm.EmailTo;
+                if (emailTo.Count != count)
+                {
+                    // save to file
+                }
             }
         }
     }
